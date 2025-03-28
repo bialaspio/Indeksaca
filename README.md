@@ -1,1 +1,2 @@
-# Indeksaca_v03
+# Indeksaca
+Progra do indeksacji zasobów operatów geodezyjnych.  
