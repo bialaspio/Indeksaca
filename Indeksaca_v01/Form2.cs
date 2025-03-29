@@ -75,7 +75,15 @@ namespace Indeksaca_v01
         {
             var cs = "Host=localhost;Username=postgres;Password=aaaaaa;Database=Pandora_test";
             var con = new NpgsqlConnection(cs);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd połączenia z bazą danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
             return con;
         }
 
