@@ -230,7 +230,15 @@ public class pliki_wielostonocowe
         {
             var cs = "Host=__host__;Username=__username__;Password=__passwd__;Database=__dbname__";
             var con = new NpgsqlConnection(cs);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd połączenia z bazą danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
             return con;
         }
 
